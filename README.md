@@ -8,8 +8,10 @@ For example shared folders can be a pain with the boot2docker image or rsync/NFS
 # Usage
 I recommend to use `Git Bash` under Windows
 
+You can use the pre-build image. Or just clone this repository and run `vagrant up`
+
 ```
-vagrant init hash/docker-dev-image
+vagrant init hash/universal-docker
 vagrant up
 
 vagrant ssh
