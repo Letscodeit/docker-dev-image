@@ -19,7 +19,23 @@ vagrant ssh
 
 ```
 
-Your home folder is by default mounted in `/vagrant`
+Your home folder is by default mounted in the same path as locally (e.g `/Users/hschaeidt`)
+
+##Optional use together with boot2docker
+Add following to your Vagrantfile
+
+```
+home = ENV['HOME']
+
+Vagrant.configure(2) do |config|
+  config.vm.provision "shell", :args => '#{home}', inline: <<-SHELL
+    echo 'export DOCKER_HOST=tcp://192.168.59.103:2376' >> /home/vagrant/.bashrc
+    echo "export DOCKER_CERT_PATH=$1/.boot2docker/certs/boot2docker-vm"
+    echo 'export DOCKER_TLS_VERIFY=1'
+  SHELL
+end
+
+```
 
 # Tweak it!
 Take out the maximum of the image by increasing the CPU & Memory.
