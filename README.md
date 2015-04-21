@@ -19,7 +19,46 @@ vagrant ssh
 
 ```
 
-Your home folder is by default mounted in `/vagrant`
+### Linux / Unix
+Your home folder is by default mounted in the same path as locally (e.g `/Users/hschaeidt` | `/home/hschaeidt`)
+
+### Windows
+Your home folder is by default mounted in the following path: `/home/vagrant/c:/hschaeidt`
+
+##Optional use together with boot2docker
+As speed matters, the boot2docker image support has been added to this image. This vagrant box can use the official boot2docker image remotely, means executing the commands like docker-compose on it.
+
+1. Start the boot2docker virtualbox file the official way
+```
+# linux/unix
+$ boot2docker up
+
+# windows in git-bash
+$ boot2docker.exec up
+```
+
+2. Comment in the concerned section in the Vagrantfile
+3. Recreate this image by running `vagrant destroy -f && vagrant up`
+4. Use it the way described in the 'Usage' section above
+
+## Troubleshooting
+Problem: Docker daemon timeout
+Solution1: SSH into the boot2docker and check if the daemon is running / if not destroy and recreate the boot2docker image using boot2docker cli
+```
+# linux/unix
+$ boot2docker help
+
+# windows in git-bash
+$ boot2docker.exec help
+```
+
+Solution2: Check if the IP-Adress matches within your Vagrantfile and your boot2docker box
+```
+$ boot2docker ssh
+$ ip addr
+```
+
+Replace the IP-Adress if needed
 
 # Tweak it!
 Take out the maximum of the image by increasing the CPU & Memory.
