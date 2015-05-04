@@ -3,7 +3,8 @@
 
 host = RbConfig::CONFIG['host_os']
 if host =~ /mswin|msys|mingw|cygwin|bccwin|wince|emc/
-  home = "/home/vagrant/" + ENV['HOME']
+  home = "/" + ENV['HOME']
+  home = home.gsub(/:/, '')
 else
   home = ENV['HOME']
 end
@@ -22,7 +23,7 @@ Vagrant.configure(2) do |config|
   config.vm.network "private_network", ip: "192.168.33.10"
   
   # Mount home folder into vagrants home folder 
-  config.vm.synced_folder ENV['HOME'], ENV['HOME']
+  config.vm.synced_folder ENV['HOME'], home
 
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the

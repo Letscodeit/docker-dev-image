@@ -23,7 +23,7 @@ vagrant ssh
 Your home folder is by default mounted in the same path as locally (e.g `/Users/hschaeidt` | `/home/hschaeidt`)
 
 ### Windows
-Your home folder is by default mounted in the following path: `/home/vagrant/c:/hschaeidt`
+Your home folder is by default mounted in the following path: `/c/Users/hschaeidt`
 
 ##Optional use together with boot2docker
 As speed matters, the boot2docker image support has been added to this image. This vagrant box can use the official boot2docker image remotely, means executing the commands like docker-compose on it.
