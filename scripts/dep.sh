@@ -16,4 +16,6 @@ wget -qO- https://get.docker.com/ | sh
 groupadd docker
 usermod -aG docker vagrant
 
+apt-get -y install python-pip python-dev
+
 pip install -U docker-compose
