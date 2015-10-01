@@ -1,3 +1,10 @@
+# No longer maintained!
+As the docker toolbox now provides nearly all required dev-tools, except the docker-compose, it might be a good idea to stick to their toolbox instead.
+I will build one last stable version of this image and that's it.
+
+Refer to:
+https://www.docker.com/toolbox
+
 # No magic!
 All it is is an ubuntu base image with docker and docker-compose pre-installed. It's stupid, but it works very good OS independant.
 
@@ -44,8 +51,3 @@ Just add following line to your Vagrantfile
 ```
 config.ssh.forward_agent = true
 ```
-
-# "Roadmap"?!
-
-- Reducing the image size
-- Pre-installing machine and swarm
