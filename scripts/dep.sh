@@ -10,7 +10,7 @@ apt-get -y install curl
 
 # Installs latest docker client
 # https://docs.docker.com/installation/ubuntulinux/
-wget -qO- https://get.docker.com/ | sh
+curl -sSL https://get.docker.com/ | /bin/sh
 
 # Give the vagrant user the permission to execute docker without sudo
 groupadd docker
